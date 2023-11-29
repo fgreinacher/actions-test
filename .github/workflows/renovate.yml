@@ -30,13 +30,13 @@ jobs:
       - name: Echo env
         shell: bash
         run: |
-          echo ${{ env.RENOVATE_NPMRC }}
+          echo "${{ env.RENOVATE_NPMRC }}"
       - name: Self-hosted Renovate
         uses: renovatebot/github-action@v39.1.1
         with:
           configurationFile: renovate-config.js
           token: ${{ secrets.RENOVATE_TOKEN }}
         env:
-          RENOVATE_NPMRC: ${{ env.RENOVATE_NPMRC }}
+          RENOVATE_NPMRC: "${{ env.RENOVATE_NPMRC }}""
           RENOVATE_APAX_TOKEN: ${{ secrets.APAX_TOKEN }}
           LOG_LEVEL: "trace"
